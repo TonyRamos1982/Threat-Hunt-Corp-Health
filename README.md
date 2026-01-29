@@ -1,7 +1,7 @@
 # Threat Hunt - CORP HEALTH
 Incident Response Report from Threat Hunt
 
-**Summary of incident details** 
+**Incident Narrative** 
 
 Your organization recently completed a phased deployment of an internal platform known as CorpHealth — a lightweight system monitoring and maintenance framework designed to: 
 
@@ -64,7 +64,13 @@ It has been formally categorized as:
 
 Your investigation will determine whether it remains just that — or escalates into something more.
 
+**Establishing an investigation scope**
 
+Before diving into deeper activity, your first responsibility as lead analyst is to identify the endpoint where the unusual telemetry originated.
+
+Overnight, the monitoring queue tagged a single workstation with a cluster of correlated events. The alerts were low-severity and categorized under “Operational Maintenance Activity (Unclassified)”. Still, the timestamps looked unusual — the sequence occurred during an off-hours window, sometime mid-November, when no maintenance jobs were scheduled.
+
+Your task is to confirm the correct device and the time frame you’ll be working within for the rest of the investigation within CorpHealth.
 
 ---
 
@@ -75,19 +81,20 @@ Your investigation will determine whether it remains just that — or escalates 
 **Severity Level:** HIGH  
 **Report Status:** Open  
 **Escalated To:** Incident Response Team  
-**Incident ID:** Corp-Health-Incident 
+**Incident ID:** Corp-Health-Incident<br> 
 **Analyst:** Tony Ramos  
 
 ---
 
 ## 📌 SUMMARY OF FINDINGS
 
-- On **2025-11-27**, ransom notes were discovered across multiple systems, confirming a successful ransomware event.
-- Investigation determined the attackers intentionally delayed ransomware execution while **systematically eliminating backup and recovery capabilities**.
-- Attackers pivoted from compromised Windows systems to a **Linux-based backup server**, leveraging **SSH access** with the privileged account **backup-admin**.
-- Extensive **discovery and reconnaissance** targeted backup directories, scheduled jobs, local accounts, and credential storage locations.
-- External tooling (`destroy.7z`) was downloaded to facilitate destructive operations.
-- **All enterprise backup repositories were deleted**, including daily, weekly, monthly, database, workstation, and configuration backups.
+- On **2025-11-23-3:45AM**, a suspicious "MaintenanceRunner_Distributed.ps1" file was discovered in the **ch-ops-wks02** device.
+- The suspicious maintenance script file initiated first outbound connection on the **2025-11-23T03:46am** using the loopback address 
+- The script's successful beacon connection to the remoteIP was made on the **2025-11-30T01:03:17am** 
+- The unexpected artifact staging activity was detected in the folder path **C:\ProgramData\Microsoft\Diagnostics\CorpHealth\**
+- At **2025-11-25T04:14** a Registry Key was created for “Credential Harvesting Simulation” then a scheduled task Registry Key was created.
+- At **2025-11-25T04:24am** a registrykey was added and its valuename was set toThe "MaintenanceRunner" for **Registry-based persistance.**
+- An application event was found at **2025-11-23T03:47:21.8529749Z** which describes a **Privilige Scalation event**
 - Backup services were **stopped and disabled**, ensuring destruction persisted across reboots.
 - Following backup eradication, attackers used **PsExec** to rapidly deploy ransomware across Windows systems.
 - Recovery was actively inhibited through **shadow copy deletion, backup engine shutdown, service termination, and recovery environment disabling**.
@@ -100,7 +107,7 @@ Your investigation will determine whether it remains just that — or escalates 
 ## 👤 WHO
 
 ### Attacker Activity Sources
-- **Initial Pivot Host:** azuki-adminpc  
+- **Initial Pivot Host:** ch-ops-wks02  
 - **Backup Infrastructure:** BackupSrv  
 - **Windows Deployment Targets:** Multiple azuki-* systems  
 
