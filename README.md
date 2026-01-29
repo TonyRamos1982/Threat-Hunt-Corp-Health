@@ -5,7 +5,6 @@ Incident Response Report from Threat Hunt
 
 Your organization recently completed a phased deployment of an internal platform known as CorpHealth — a lightweight system monitoring and maintenance framework designed to: 
 
-
 -	Track endpoint stability and performance
 -	Run automated post-patch health checks
 -	Collect system diagnostics during maintenance windows
@@ -16,7 +15,6 @@ CorpHealth operates using a mix of scheduled tasks, background services, and dia
 To support this, IT provisioned a dedicated operational account.
 
 This account was granted local administrator privileges on specific systems in order to: 
-
 
 -	Register scheduled maintenance tasks
 -	Install and remove system services
@@ -34,7 +32,6 @@ health checks, scheduled runs, configuration updates, and inventory synchronizat
 
 However, closer review raised concerns:
 
-
 -	Activity occurred outside normal maintenance windows
 -	Script execution patterns deviated from approved baselines
 -	Diagnostic processes were launched manually rather than through automation
@@ -46,7 +43,6 @@ Your Role
 
 You are taking over as the lead analyst assigned to review historical telemetry captured by: 
 
-
 -	Microsoft Defender for Endpoint
 -	Azure diagnostic and device logs
 -	Supporting endpoint event artifacts 
@@ -54,7 +50,6 @@ You are taking over as the lead analyst assigned to review historical telemetry 
 You will not have live access to the machine — only its recorded activity.
 
 Your task is to determine: 
-
 
 -	What system was affected
 -	When suspicious activity occurred
@@ -76,12 +71,12 @@ Your investigation will determine whether it remains just that — or escalates 
 ## 📝 INCIDENT RESPONSE REPORT
 
 **Date of Report:** 2026-01-06  
-**Incident Date Range:** 2025-11-19 – 2025-12-06  
+**Incident Date Range:** 2025-11-15 – 2025-12-15  
 **Severity Level:** HIGH  
 **Report Status:** Open  
-**Escalated To:** Incident Response / Ransomware Response Team  
-**Incident ID:** AZUKI-2025-RANSOMWARE-PREP  
-**Analyst:** Brian Sanford  
+**Escalated To:** Incident Response Team  
+**Incident ID:** Corp-Health-Incident 
+**Analyst:** Tony Ramos  
 
 ---
 
