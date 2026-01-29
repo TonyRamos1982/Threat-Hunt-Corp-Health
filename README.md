@@ -56,10 +56,10 @@ You will not have live access to the machine — only its recorded activity.
 Your task is to determine: 
 
 
-•	What system was affected
-•	When suspicious activity occurred
-•	How the activity progressed across different stages
-•	Whether the behavior represents authorized automation or misuse of a privileged account
+-	What system was affected
+-	When suspicious activity occurred
+-	How the activity progressed across different stages
+-	Whether the behavior represents authorized automation or misuse of a privileged account
 
 The incident is not labeled as a confirmed breach.
 
