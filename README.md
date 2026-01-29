@@ -95,8 +95,8 @@ Your task is to confirm the correct device and the time frame you’ll be workin
 - At **2025-11-25T04:14** a Registry Key was created for “Credential Harvesting Simulation” then a scheduled task Registry Key was created.
 - At **2025-11-25T04:24am** a registrykey was added and its valuename was set toThe "MaintenanceRunner" for **Registry-based persistance.**
 - An application event was found at **2025-11-23T03:47:21.8529749Z** which describes a **Privilige Scalation event**
-- Backup services were **stopped and disabled**, ensuring destruction persisted across reboots.
-- Following backup eradication, attackers used **PsExec** to rapidly deploy ransomware across Windows systems.
+- A file with an exec script was found which would exclude microsoft defender from scanning the specified folderpath "C:\ProgramData\Corp\Ops\staging -Force"
+- An powershell encodedcommand execution script was found with an encoded payload.
 - Recovery was actively inhibited through **shadow copy deletion, backup engine shutdown, service termination, and recovery environment disabling**.
 - Persistence mechanisms were established using **registry autoruns** and **scheduled tasks**.
 - Anti-forensic activity included **USN journal deletion**, degrading forensic reconstruction.
@@ -253,7 +253,7 @@ Your task is to confirm the correct device and the time frame you’ll be workin
 
 ---
 
-## Jan 6 Threat Hunt – Ransomware Kill Chain (Azuki Logistics)  
+## Threat Hunt - Corp Health Queries  
 
 ---  
 
