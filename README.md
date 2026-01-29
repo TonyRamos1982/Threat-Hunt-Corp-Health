@@ -1,7 +1,7 @@
 # Threat Hunt - CORP HEALTH
 Incident Response Report from Threat Hunt
 
-Summary of incident details 
+**Summary of incident details** 
 
 Your organization recently completed a phased deployment of an internal platform known as CorpHealth — a lightweight system monitoring and maintenance framework designed to: 
 
