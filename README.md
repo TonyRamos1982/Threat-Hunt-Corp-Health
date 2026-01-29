@@ -6,10 +6,10 @@ Summary of incident details
 Your organization recently completed a phased deployment of an internal platform known as CorpHealth — a lightweight system monitoring and maintenance framework designed to: 
 
 
-•	Track endpoint stability and performance
-•	Run automated post-patch health checks
-•	Collect system diagnostics during maintenance windows
-•	Reduce manual workload for operations teams 
+-	Track endpoint stability and performance
+-	Run automated post-patch health checks
+-	Collect system diagnostics during maintenance windows
+-	Reduce manual workload for operations teams 
 
 CorpHealth operates using a mix of scheduled tasks, background services, and diagnostic scripts deployed across operational workstations.
 
