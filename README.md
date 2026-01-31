@@ -97,10 +97,14 @@ Your task is to confirm the correct device and the time frame you’ll be workin
 - An application event was found at **2025-11-23T03:47:21.8529749Z** which describes a **Privilige Scalation event**
 - A file with an exec script was found which would exclude microsoft defender from scanning the specified folderpath "C:\ProgramData\Corp\Ops\staging -Force"
 - An powershell encodedcommand execution script was found with an encoded payload.
-- Recovery was actively inhibited through **shadow copy deletion, backup engine shutdown, service termination, and recovery environment disabling**.
-- Persistence mechanisms were established using **registry autoruns** and **scheduled tasks**.
-- Anti-forensic activity included **USN journal deletion**, degrading forensic reconstruction.
-- The attack concluded with encryption and deployment of the ransom note **SILENTLYNX_README.txt**, confirming ransomware success.
+- An windows registry event for privilige scalation was found as **ProcessPrimaryTokenModified event** with evidence of toke modification.
+- A binary was recorded by Defender called **"revshell"**, which appears to be an ingress transfer tool.
+- A outbound HTTPS connection was found to download the binary from an tunneling external platform source initiated by **curl.exe**.
+- The threat actor then proceed to execute their tools from profile directory via explorer.exe
+- The binary **"revshell"** once executed reached to the remote IP **13.228.171.119**
+- The binary file was also copied into the **windows startup directory** to achieve persistence.
+- The remote session device name was found and had a particular description **"对手"**
+- Initial pivot internal IP address was identified with its timestamp and user account "chadmin".
 
 ---
 
