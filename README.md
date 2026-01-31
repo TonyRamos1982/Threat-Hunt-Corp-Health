@@ -111,14 +111,13 @@ Your task is to confirm the correct device and the time frame you’ll be workin
 ## 👤 WHO
 
 ### Attacker Activity Sources
-- **Initial Pivot Host:** ch-ops-wks02  
-- **Backup Infrastructure:** BackupSrv  
-- **Windows Deployment Targets:** Multiple azuki-* systems  
+- **Initial Pivot Host:** ch-ops-wks02
+- **Initial Pivot Account:** chadmin
+- **Windows Deployment Targets:** Multiple systems  
 
 ### Compromised Accounts
-- **backup-admin** (Linux backup administrator)
-- **kenji.sato** (Windows domain account – ransomware deployment)
-- **yuki.tanaka** (Windows account – recovery inhibition)
+- **chadmin** (Windows domain account )
+
 
 ---
 
@@ -173,52 +172,38 @@ Your task is to confirm the correct device and the time frame you’ll be workin
 ## 🖥 WHERE (Infrastructure Impact)
 
 ### Compromised Systems
-- azuki-adminpc  
-- BackupSrv  
-- Multiple Windows azuki-* systems  
-
-### Destroyed Backup Locations
-- /backups/daily  
-- /backups/weekly  
-- /backups/monthly  
-- /backups/databases  
-- /backups/workstations  
-- /backups/configs  
+- CH-OPS-WKS02
 
 ---
 
 ## ❓ WHY (Attacker Motivation & Root Cause)
 
 ### Root Cause
-- Privileged account compromise with direct access to backup infrastructure.
+- Privileged account compromise with direct access to other endpoints.
 - Insufficient segmentation between production and recovery assets.
-- Backup servers accessible using standard administrative credentials.
+- No "zero trust" controls in place.
 
 ### Attacker Objectives
-- Eliminate recovery options  
-- Guarantee ransomware leverage  
-- Accelerate encryption  
-- Prevent rollback or restoration  
+- compromise admin account  
+- pivoting and privilige escalation
+- achieve persistance   
+- exfiltrate company information
 
 ### Business Impact
-- Complete loss of on-site backups  
-- Severe MTTR degradation  
-- Extended operational outage risk  
+- Compromised admin accounts.
+- exfiltration of company sensitive information  
+- Different endpoints at risk.
 
 ---
 
 ## ⚙️ HOW (Attack Chain Summary)
 
 1. Initial Windows compromise  
-2. Pivot to Linux backup server via SSH  
-3. Enumeration of backups, schedules, and credentials  
-4. External tool download  
-5. Complete backup destruction  
-6. Backup service disablement  
-7. Ransomware deployment via PsExec  
-8. Recovery inhibition  
-9. Persistence and anti-forensics  
-10. Encryption and ransom note delivery  
+2. Pivot to maintenance account
+3. Persistance achieved via registry modification
+4. ingress tool donwload 
+5. information exfiltration
+
 
 ---
 
@@ -240,20 +225,16 @@ Your task is to confirm the correct device and the time frame you’ll be workin
 ### 🔥 IMMEDIATE
 - Isolate affected systems  
 - Disable compromised accounts  
-- Engage ransomware response  
 - Preserve remaining forensic artifacts  
 
 ---
 
 ## 🛡 LONG-TERM RECOMMENDATIONS
 
-- Implement immutable backups  
 - Enforce MFA for backup/admin access  
-- Segment recovery infrastructure  
+- Segment endpoints
 - Monitor SSH and PsExec usage  
-- Conduct ransomware tabletop exercises  
-
-
+- conduct cybersecurity training exercises.
 
 ---
 
